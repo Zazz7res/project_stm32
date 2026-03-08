@@ -1,0 +1,19 @@
+# 构建目录
+build/
+*.o
+*.d
+*.elf
+*.bin
+*.hex
+*.map
+*.log
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 操作系统
+.DS_Store
+Thumbs.db
