@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 set(CMAKE_TOOLCHAIN_FILE ${CMAKE_SOURCE_DIR}/cmake/toolchain.cmake)
 project(STM32F103C8T6 C CXX ASM)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # 芯片宏定义
 add_definitions(-DSTM32F10X_MD)

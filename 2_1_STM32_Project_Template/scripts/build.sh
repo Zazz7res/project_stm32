@@ -11,8 +11,7 @@ mkdir build
 cd build
 
 # 配置 CMake（使用 Ninja）
-cmake .. -G Ninja -DCMAKE_BUILD_TYPE=Debug
-
+cmake .. -G Ninja -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 # 编译
 ninja
 
