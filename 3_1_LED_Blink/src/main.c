@@ -1,6 +1,6 @@
-#include "stm32f103x.h"
+#include "stm32f10x.h"
 
-int main(vod) 
+int main(void) 
 {
     while (1) {
         
