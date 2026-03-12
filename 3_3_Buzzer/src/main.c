@@ -1,0 +1,41 @@
+#include "stm32f10x.h"
+#include "stm32f10x_gpio.h"
+#include "stm32f10x_rcc.h"
+#include "Delay.h"
+
+int main(void) 
+{
+    // ========== 防砖代码（加这 3 行）==========
+    // 1. 禁用可能冲突的外设（如 USB）
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_USB, DISABLE);
+    // 2. 拉低 PA11/PA12（USB 引脚），防止上电枚举冲突
+    GPIOA->CRL &= ~0xFF000000;  // PA11/PA12 配置为输入
+    GPIOA->ODR &= ~0x1800;       // 输出低电平
+    // ========================================
+
+    //  我的程序
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,  ENABLE);
+    GPIO_InitTypeDef GPIO_InitStructure;
+    // GPIO_Mode_Out_PP 这是推挽模式，即使LED灯的引脚装反都可以正常闪烁
+    // 这意味着高低电平都有效
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP ;
+    // GPIO_InitStructure.GPIO_Mode_out_OD;
+    // 这个 GPIO_InitStructure.GPIO_Mode_out_OD 是开漏输出
+    // 高电平是没有驱动能力的，只有低电平有驱动能力
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
+    
+    while (1)
+    {
+        // 这些代码都是可以控制LED灯亮灭的
+        GPIO_ResetBits(GPIOB, GPIO_Pin_12);
+        Delay_ms(100);
+        GPIO_SetBits(GPIOB, GPIO_Pin_12);
+        Delay_ms(100);
+        GPIO_ResetBits(GPIOB, GPIO_Pin_12);
+        Delay_ms(100);
+        GPIO_SetBits(GPIOB, GPIO_Pin_12);
+        Delay_ms(700);
+    }
+}
