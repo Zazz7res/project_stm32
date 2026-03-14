@@ -3,6 +3,11 @@
 #include "stm32f10x_rcc.h"
 #include "Delay.h"
 #include "LED.h"
+#include "Key.h"
+#include <stdint.h>
+
+// 这个全局变量用于存储键码的返回值
+uint8_t KeyNum;
 
 int main(void) 
 {
@@ -15,8 +20,17 @@ int main(void)
     // ========================================
 
     //  我的程序
+
+    LED_Init();
+    Key_Init();
     
     while (1)
     {
+        LED1_ON();
+        LED2_ON();
+        Delay_ms(500);
+        LED1_OFF();
+        LED2_OFF();
+        Delay_ms(500);
     }
 }

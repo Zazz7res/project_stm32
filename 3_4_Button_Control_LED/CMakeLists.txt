@@ -14,6 +14,7 @@ add_executable(${PROJECT_NAME}.elf
     ${CMAKE_SOURCE_DIR}/src/stm32f10x_it.c
     ${CMAKE_SOURCE_DIR}/src/utils/Delay.c
     ${CMAKE_SOURCE_DIR}/src/hardware/LED.c
+    ${CMAKE_SOURCE_DIR}/src/hardware/Key.c
 )
 
 # ✅ 正确：局部头文件路径，只影响当前目标
@@ -23,7 +24,7 @@ target_include_directories(${PROJECT_NAME}.elf PRIVATE
     ${CMAKE_SOURCE_DIR}/drivers/CMSIS/CoreSupport
     ${CMAKE_SOURCE_DIR}/drivers/CMSIS/Device/ST/STM32F10x
     ${CMAKE_SOURCE_DIR}/drivers/STM32F10x_StdPeriph_Driver/inc
-    ${CMAKE_SOURCE_DIR)/src/hardware}
+    ${CMAKE_SOURCE_DIR}/src/hardware
 )
 
 # ✅ 正确：局部编译选项
