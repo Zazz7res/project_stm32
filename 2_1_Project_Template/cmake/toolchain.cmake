@@ -2,11 +2,11 @@ set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_PROCESSOR cortex-m3)
 
 # 使用绝对路径指定编译器（根据你的 which 输出）
-set(CMAKE_C_COMPILER /home/mini-harry/tools/arm-gnu-toolchain-15.2/bin/arm-none-eabi-gcc)
-set(CMAKE_CXX_COMPILER /home/mini-harry/tools/arm-gnu-toolchain-15.2/bin/arm-none-eabi-g++)
-set(CMAKE_ASM_COMPILER /home/mini-harry/tools/arm-gnu-toolchain-15.2/bin/arm-none-eabi-gcc)
-set(CMAKE_OBJCOPY /home/mini-harry/tools/arm-gnu-toolchain-15.2/bin/arm-none-eabi-objcopy)
-set(CMAKE_SIZE /home/mini-harry/tools/arm-gnu-toolchain-15.2/bin/arm-none-eabi-size)
+set(CMAKE_C_COMPILER /opt/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-gcc)
+set(CMAKE_CXX_COMPILER /opt/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-g++)
+set(CMAKE_ASM_COMPILER /opt/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-gcc)
+set(CMAKE_OBJCOPY /opt/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-objcopy)
+set(CMAKE_SIZE /opt/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-size)
 
 # 避免 CMake 尝试链接可执行文件进行检测
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)

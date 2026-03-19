@@ -1,0 +1,11 @@
+CompileFlags:
+  Add:
+    - --target=arm-none-eabi
+    - --sysroot=/home/mini-harry/tools/arm-gnu-toolchain-15.2/arm-none-eabi
+    - -I/home/mini-harry/tools/arm-gnu-toolchain-15.2/arm-none-eabi/include
+  Remove:
+    - -mthumb
+    - -mcpu=cortex-m3
+    - -mfloat-abi=soft
+    - -ffunction-sections
+    - -fdata-sections
