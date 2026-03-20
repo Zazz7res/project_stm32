@@ -1,13 +1,7 @@
 #include "stm32f10x.h"
-#include "stm32f10x_gpio.h"
-#include "stm32f10x_rcc.h"
 #include "Delay.h"
-#include "LED.h"
-#include "Key.h"
-#include <stdint.h>
-
-// 这个全局变量用于存储键码的返回值
-uint8_t KeyNum;
+#include "Buzzer.h"
+#include "LightSensor.h"
 
 int main(void) 
 {
@@ -20,20 +14,18 @@ int main(void)
     // ========================================
 
     //  我的程序
-
-    LED_Init();
-    Key_Init();
+    Buzzer_Init();
+    LightSensor_Init();
     
     while (1)
     {
-        KeyNum = Key_GetNum();
-        if (KeyNum == 1)
+        if (LightSensor_Get() == 1)
         {
-            LED1_Turn();
+            Buzzer_ON();
         }
-        if (KeyNum == 2)
+        else 
         {
-            LED2_Turn();
+            Buzzer_OFF();
         }
     }
 }

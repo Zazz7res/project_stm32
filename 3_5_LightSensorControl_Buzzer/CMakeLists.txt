@@ -16,6 +16,7 @@ add_executable(${PROJECT_NAME}.elf
     ${CMAKE_SOURCE_DIR}/src/utils/Delay.c
     ${CMAKE_SOURCE_DIR}/src/hardware/LED.c
     ${CMAKE_SOURCE_DIR}/src/hardware/Key.c
+    ${CMAKE_SOURCE_DIR}/src/hardware/Buzzer.c
 )
 
 # ✅ 正确：局部头文件路径，只影响当前目标
